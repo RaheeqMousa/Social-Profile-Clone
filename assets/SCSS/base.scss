@@ -1,0 +1,50 @@
+$mainFont: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$btnSecondary:#0866ff;
+$btnPrimary:#E2E5E9;
+
+@mixin AlignCenter{
+    display: flex;
+    align-items: center;
+}
+
+body{
+    font-family: $mainFont;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    @include AlignCenter;
+    flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, ul, ol, blockquote,dl, fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style-type: none;
+}
+
+ul li{
+    list-style: none;
+}
+
+button{
+    border: none;
+}
+
+.row{
+    @include AlignCenter;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.FlexCenter{
+    justify-content: center;
+    align-items: center;
+}
