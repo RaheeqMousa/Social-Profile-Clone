@@ -30,6 +30,10 @@ button {
   border: none;
 }
 
+.DisplayNone {
+  display: none;
+}
+
 .row {
   display: flex;
   align-items: center;
@@ -40,6 +44,14 @@ button {
 .FlexCenter {
   justify-content: center;
   align-items: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.FlexColumn {
+  flex-direction: column;
 }
 
 header {
@@ -60,11 +72,21 @@ header label {
   justify-content: center;
   color: #606770;
 }
+@media screen and (max-width: 850px) {
+  header label {
+    width: 50px;
+  }
+}
 
 header label input {
   padding: 0px 7px 0px 9px;
   background-color: #F0F2F5;
   border: none;
+}
+@media screen and (max-width: 850px) {
+  header label input {
+    display: none;
+  }
 }
 
 header section {
@@ -136,6 +158,12 @@ header .UserDetails .UserPic img {
 header .UserInfo {
   width: 1200px;
 }
+@media screen and (max-width: 850px) {
+  header .UserInfo {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
 
 .actions {
   display: flex;
@@ -154,9 +182,20 @@ header .UserInfo {
 .actions button.primary {
   background-color: #E2E5E9;
 }
+@media screen and (max-width: 850px) {
+  .actions {
+    width: 100%;
+    justify-content: center;
+  }
+}
 
 .ProfileInfoWrapper {
   transform: translateY(-35%);
+}
+@media screen and (max-width: 850px) {
+  .ProfileInfoWrapper {
+    transform: translateY(-25%);
+  }
 }
 
 .ProfileInfo {
@@ -165,6 +204,12 @@ header .UserInfo {
 
 .UserInfo div {
   align-self: flex-end;
+  text-align: center;
+}
+@media screen and (max-width: 850px) {
+  .UserInfo div {
+    align-self: center;
+  }
 }
 
 .ProfileNavigation {
@@ -186,7 +231,7 @@ header .UserInfo {
   align-items: center;
   justify-content: space-between;
 }
-.ProfileNavigation nav a.active {
+.ProfileNavigation nav a:focus {
   color: #0866ff;
   border-bottom: 3px solid #0866ff;
 }
@@ -200,4 +245,157 @@ header .UserInfo {
 .ProfileNavigation a#ProfileSettings {
   background-color: #E2E5E9;
   border-radius: 10px;
+}
+
+main {
+  width: 1200px;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-rows: 1fr;
+}
+main aside {
+  padding: 20px 16px 20px 16px;
+  margin: 8px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  /*
+      0 (horizontal offset) the shadow is aligned with the element
+      4px (vertical offset) the shadow is shifted 4 pixels downward
+      8px (Blur Radius): The shadow becomes softer and more blurred as it extends outward by 8 pixels.
+      0 (Spread Radius) The shadow size remains the same
+      rgba(0, 0, 0, 0.2) (Color): The shadow is black (rgb(0, 0, 0)) with 20% opacity, making it semi-transparent.
+  */
+  height: fit-content;
+}
+main aside button {
+  width: 100%;
+  margin-top: 16px;
+  border-radius: 10px;
+  padding: 0px 12px;
+  height: 36px;
+  background-color: #E2E5E9;
+  font-weight: 600;
+  color: #080809;
+}
+main section {
+  margin: 8px;
+}
+@media screen and (max-width: 1200px) {
+  main {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 850px) {
+  main {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+}
+
+.PostLayout {
+  padding: 12px 12px 6px 12px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  flex-direction: column;
+  gap: 10px;
+  font-size: 15px;
+}
+.PostLayout .PostHeading {
+  gap: 5px;
+  font-weight: 600;
+}
+.PostLayout .PostHeading .date {
+  font-size: 13px;
+}
+.PostLayout .PostData {
+  font-size: 24px;
+  text-align: end;
+}
+.PostLayout form {
+  width: 100%;
+}
+.PostLayout form input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 30px;
+  box-sizing: border-box;
+  border: none;
+  background-color: #F0F2F5;
+  color: #65686c;
+}
+.PostLayout .PostOptions {
+  border-top: 1px solid #F0F2F5;
+  border-bottom: 1px solid #F0F2F5;
+  border: 4px 0px;
+  justify-content: space-around;
+}
+.PostLayout .PostOptions .PostBtn {
+  padding: 0px 12px;
+  height: 44px;
+  gap: 10px;
+}
+.PostLayout .PostOptions .PostBtn p {
+  padding: 6px 4px;
+}
+.PostLayout .comment {
+  font-size: 13px;
+  gap: 5px;
+}
+.PostLayout .comment .CommentHeader {
+  font-weight: 600;
+}
+.PostLayout .comment .CommentOptions {
+  font-size: 12px;
+}
+.PostLayout .comment .CommentOptions div {
+  gap: 10px;
+  margin: 0px -8px 0px 4px;
+  padding: 8px 0px 0px;
+}
+.PostLayout .CommentContent {
+  padding: 8px 12px;
+  border-radius: 15px;
+  gap: 5px;
+  font-size: 15px;
+}
+.PostLayout .CommentContent p {
+  font-size: 13px;
+}
+.PostLayout .PostSettings {
+  width: 36px;
+  height: 36px;
+}
+.PostLayout .CommentRow {
+  gap: 5px;
+}
+
+.CircleImage {
+  border-radius: 50%;
+}
+
+.DropDownImg {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  background-color: aliceblue;
+  border: 3px solid white;
+  border-radius: 50%;
+}
+
+.BlackText {
+  color: #080809;
+}
+
+.GrayText {
+  color: #65686c;
+}
+
+.GrayBackground {
+  background-color: #F0F2F5;
 }

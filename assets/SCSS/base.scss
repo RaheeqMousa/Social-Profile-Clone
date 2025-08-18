@@ -38,6 +38,10 @@ button{
     border: none;
 }
 
+.DisplayNone{
+    display: none;
+}
+
 .row{
     @include AlignCenter;
     justify-content: space-between;
@@ -47,4 +51,12 @@ button{
 .FlexCenter{
     justify-content: center;
     align-items: center;
+}
+
+.flex{
+    display: flex;
+}
+
+.FlexColumn{
+    flex-direction: column;
 }

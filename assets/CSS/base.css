@@ -30,6 +30,10 @@ button {
   border: none;
 }
 
+.DisplayNone {
+  display: none;
+}
+
 .row {
   display: flex;
   align-items: center;
@@ -40,4 +44,12 @@ button {
 .FlexCenter {
   justify-content: center;
   align-items: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.FlexColumn {
+  flex-direction: column;
 }
