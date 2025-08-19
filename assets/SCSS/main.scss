@@ -394,6 +394,34 @@ main{
         gap:5px;
     }
 
+    .images{
+        img{
+            height: auto;
+        }
+        .ImageWrapper{
+            overflow: hidden;
+            height: 350px;
+        }
+
+        @media screen and (max-width: 769px){
+            img{
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 426px){
+            .ImageWrapper{
+                height: 185px;
+            }
+        }
+
+        @media screen and (max-width: 320px){
+            .ImageWrapper{
+                height: 130px;
+            }
+        }
+    }
+
     @media screen and (max-width: 769px) {
         width: 100%;
         box-sizing: border-box;

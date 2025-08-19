@@ -440,6 +440,28 @@ main section {
 .PostLayout .CommentRow {
   gap: 5px;
 }
+.PostLayout .images img {
+  height: auto;
+}
+.PostLayout .images .ImageWrapper {
+  overflow: hidden;
+  height: 350px;
+}
+@media screen and (max-width: 769px) {
+  .PostLayout .images img {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 426px) {
+  .PostLayout .images .ImageWrapper {
+    height: 185px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .PostLayout .images .ImageWrapper {
+    height: 130px;
+  }
+}
 @media screen and (max-width: 769px) {
   .PostLayout {
     width: 100%;
