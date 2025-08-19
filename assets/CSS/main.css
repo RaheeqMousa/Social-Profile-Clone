@@ -14,6 +14,10 @@ p, ul, ol, blockquote, dl, fieldset {
   padding: 0;
 }
 
+h4 {
+  color: black;
+}
+
 a {
   text-decoration: none;
 }
@@ -379,7 +383,7 @@ main section {
   font-size: 13px;
 }
 .PostLayout .PostData {
-  font-size: 24px;
+  font-size: 15px;
   text-align: end;
   padding: 0px 4px 12px 16px;
 }
@@ -496,4 +500,18 @@ main section {
 
 .GrayBackground {
   background-color: #F0F2F5;
+}
+
+.PostReactionImage {
+  margin-right: -4px;
+}
+
+.like {
+  color: #0866ff;
+  font-weight: bold;
+}
+
+.love {
+  color: #DD2333;
+  font-weight: bold;
 }
