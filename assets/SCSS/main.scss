@@ -3,6 +3,8 @@
 
 header{
     width: 100%;
+    box-shadow:0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    background-color: white;
 }
 
 header section:first-of-type div {
@@ -12,7 +14,7 @@ header section:first-of-type div {
 header label {
     width: 250px;
     height: 40px;
-    background-color: #F0F2F5;
+    background-color: base.$mainColor;
     border-radius: 50px;
     @include base.AlignCenter;
     justify-content: center;
@@ -25,7 +27,7 @@ header label {
 
 header label input {
     padding: 0px 7px 0px 9px;
-    background-color: #F0F2F5;
+    background-color: base.$mainColor;
     border: none;
 
     @media screen and (max-width:850px) {
@@ -33,7 +35,7 @@ header label input {
     }
 }
 
-header section {
+header .ProfileInfoWrapper {
     padding: 0px 11px;
 }
 
@@ -42,7 +44,13 @@ header ul:first-of-type {
 }
 
 header ul:nth-of-type(1) a {
-    color: #65676b;
+    color: #65686c;
+}
+
+@media screen and (max-width:850px){
+    header ul:nth-of-type(1){
+        display: none;
+    }
 }
 
 header ul:nth-of-type(2) {
@@ -78,6 +86,11 @@ header .ProfileHeader .CoverPhoto img {
     object-fit: cover;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    @media screen and (max-width:850px){
+        width: 100%;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
 }
 
 header .ProfileHeader img {
@@ -135,6 +148,27 @@ header .UserInfo{
         width: 100%;
         justify-content: center;
     }
+
+    @media screen and (max-width:450px) {
+        display: grid;
+        grid-template-columns: 4fr 1fr;
+        div{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+    }
+
+    @media screen and (max-width:320px) {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr ;
+        div{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+    }
 }
 
 .ProfileInfoWrapper{
@@ -185,13 +219,32 @@ header .UserInfo{
             justify-content: center;
             align-items: center;
             width: fit-content;
-            padding: 0px;
+            padding: 0px; 
+            
+            
+            @media screen and (max-width:426px){
+                li:nth-of-type(4), li:nth-of-type(5), li:nth-of-type(6) {
+                    display: none;
+                }             
+            }
+            @media screen and (max-width:376px){
+                li:nth-of-type(3) {
+                    display: none;
+                }
+            }
+            @media screen and (max-width:321px){
+                li:nth-of-type(2) {
+                    display: none;
+                }
+            }
         }
     }
     a#ProfileSettings{
         background-color: base.$btnPrimary;
         border-radius: 10px;
     }
+
+
 }
 
 main{
@@ -199,6 +252,7 @@ main{
     display: grid;
     grid-template-columns: 40% 60%;
     grid-template-rows: 1fr;
+    display: flex;
 
     aside{
         padding: 20px 16px 20px 16px;
@@ -206,6 +260,7 @@ main{
         background-color: white;
         border-radius: 10px;
         box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        width: 680px;
         /*
             0 (horizontal offset) the shadow is aligned with the element
             4px (vertical offset) the shadow is shifted 4 pixels downward
@@ -224,7 +279,13 @@ main{
             font-weight:600;
             color: #080809;
         }
+
+        @media screen and (max-width:700px){
+            width: 100%;
+            box-sizing: border-box;
+        }
     }
+
     section{
         margin: 8px;
     }
@@ -234,12 +295,19 @@ main{
     }
 
     @media screen and (max-width:850px) {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+            box-sizing: border-box;
+    padding: 0px 16px;
     }
 }
 
-
+.posts{
+    gap:10px;
+    width: 100%;
+}
 .PostLayout{
     padding: 12px 12px 6px 12px;
     background-color: white;
@@ -248,7 +316,8 @@ main{
     flex-direction: column;
     gap:10px;
     font-size: 15px;
-
+    width: 680px;
+    
     .PostHeading{
         gap:5px;
         font-weight: 600;
@@ -270,13 +339,13 @@ main{
             border-radius: 30px;
             box-sizing: border-box;
             border: none;
-            background-color: #F0F2F5;
+            background-color: base.$mainColor;
             color:#65686c;
         }
     }
     .PostOptions{
-        border-top: 1px solid #F0F2F5;
-        border-bottom: 1px solid #F0F2F5;
+        border-top: 1px solid base.$mainColor;
+        border-bottom: 1px solid base.$mainColor;
         border: 4px 0px;
         justify-content: space-around;
         .PostBtn{
@@ -323,6 +392,11 @@ main{
     .CommentRow{
         gap:5px;
     }
+
+    @media screen and (max-width: 700px) {
+        width: 100%;
+        box-sizing: border-box;
+    }
     
 }
 
@@ -352,5 +426,5 @@ main{
 }
 
 .GrayBackground{
-background-color: #F0F2F5;
+background-color: base.$mainColor;
 }

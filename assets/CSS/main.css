@@ -2,7 +2,7 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: white;
+  background-color: #F0F2F5;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -21,7 +21,6 @@ a {
 ul {
   list-style-type: none;
 }
-
 ul li {
   list-style: none;
 }
@@ -56,6 +55,8 @@ button {
 
 header {
   width: 100%;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
 header section:first-of-type div {
@@ -89,7 +90,7 @@ header label input {
   }
 }
 
-header section {
+header .ProfileInfoWrapper {
   padding: 0px 11px;
 }
 
@@ -98,9 +99,14 @@ header ul:first-of-type {
 }
 
 header ul:nth-of-type(1) a {
-  color: #65676b;
+  color: #65686c;
 }
 
+@media screen and (max-width: 850px) {
+  header ul:nth-of-type(1) {
+    display: none;
+  }
+}
 header ul:nth-of-type(2) {
   gap: 5px;
 }
@@ -134,6 +140,13 @@ header .ProfileHeader .CoverPhoto img {
   object-fit: cover;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+@media screen and (max-width: 850px) {
+  header .ProfileHeader .CoverPhoto img {
+    width: 100%;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
 }
 
 header .ProfileHeader img {
@@ -186,6 +199,29 @@ header .UserInfo {
   .actions {
     width: 100%;
     justify-content: center;
+  }
+}
+@media screen and (max-width: 450px) {
+  .actions {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+  }
+  .actions div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .actions {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+  .actions div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
   }
 }
 
@@ -242,6 +278,21 @@ header .UserInfo {
   width: fit-content;
   padding: 0px;
 }
+@media screen and (max-width: 426px) {
+  .ProfileNavigation nav ul li:nth-of-type(4), .ProfileNavigation nav ul li:nth-of-type(5), .ProfileNavigation nav ul li:nth-of-type(6) {
+    display: none;
+  }
+}
+@media screen and (max-width: 376px) {
+  .ProfileNavigation nav ul li:nth-of-type(3) {
+    display: none;
+  }
+}
+@media screen and (max-width: 321px) {
+  .ProfileNavigation nav ul li:nth-of-type(2) {
+    display: none;
+  }
+}
 .ProfileNavigation a#ProfileSettings {
   background-color: #E2E5E9;
   border-radius: 10px;
@@ -252,6 +303,7 @@ main {
   display: grid;
   grid-template-columns: 40% 60%;
   grid-template-rows: 1fr;
+  display: flex;
 }
 main aside {
   padding: 20px 16px 20px 16px;
@@ -259,6 +311,7 @@ main aside {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 680px;
   /*
       0 (horizontal offset) the shadow is aligned with the element
       4px (vertical offset) the shadow is shifted 4 pixels downward
@@ -278,6 +331,12 @@ main aside button {
   font-weight: 600;
   color: #080809;
 }
+@media screen and (max-width: 700px) {
+  main aside {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
 main section {
   margin: 8px;
 }
@@ -288,9 +347,18 @@ main section {
 }
 @media screen and (max-width: 850px) {
   main {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0px 16px;
   }
+}
+
+.posts {
+  gap: 10px;
+  width: 100%;
 }
 
 .PostLayout {
@@ -301,6 +369,7 @@ main section {
   flex-direction: column;
   gap: 10px;
   font-size: 15px;
+  width: 680px;
 }
 .PostLayout .PostHeading {
   gap: 5px;
@@ -369,6 +438,12 @@ main section {
 }
 .PostLayout .CommentRow {
   gap: 5px;
+}
+@media screen and (max-width: 700px) {
+  .PostLayout {
+    width: 100%;
+    box-sizing: border-box;
+  }
 }
 
 .CircleImage {

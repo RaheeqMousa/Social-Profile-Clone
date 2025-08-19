@@ -1,6 +1,7 @@
 $mainFont: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 $btnSecondary:#0866ff;
 $btnPrimary:#E2E5E9;
+$mainColor:#F0F2F5;
 
 @mixin AlignCenter{
     display: flex;
@@ -11,7 +12,7 @@ body{
     font-family: $mainFont;
     margin: 0;
     padding: 0;
-    background-color: white;
+    background-color: $mainColor;
     @include AlignCenter;
     flex-direction: column;
 }
@@ -28,11 +29,11 @@ a{
 
 ul{
     list-style-type: none;
+    li{
+        list-style: none;
+    }
 }
 
-ul li{
-    list-style: none;
-}
 
 button{
     border: none;
