@@ -381,6 +381,7 @@ main section {
 .PostLayout .PostData {
   font-size: 24px;
   text-align: end;
+  padding: 0px 4px 12px 16px;
 }
 .PostLayout form {
   width: 100%;
@@ -439,7 +440,7 @@ main section {
 .PostLayout .CommentRow {
   gap: 5px;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 769px) {
   .PostLayout {
     width: 100%;
     box-sizing: border-box;
