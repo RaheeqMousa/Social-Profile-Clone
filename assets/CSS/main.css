@@ -472,6 +472,10 @@ main section {
     box-sizing: border-box;
   }
 }
+.PostLayout .image {
+  width: 100%;
+  height: auto;
+}
 
 .CircleImage {
   border-radius: 50%;
