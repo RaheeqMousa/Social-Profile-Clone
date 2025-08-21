@@ -1,6 +1,6 @@
 const posts = [
     {
-        text: `https://raheeqmousa.github.io/XOzone/`, linkHeading: 'XOzone - Home', linkDesc: 'PicSnap - Explore Images, Download Free Images', linkImage: '<img src="assets/Images/logo.svg" alt="Preview" width="250" height="250" alt="logo img" title="logo image">',
+        text: `https://raheeqmousa.github.io/XOzone/`, linkHeading: 'XOzone - Home', linkDesc: 'PicSnap - Explore Images, Download Free Images', linkImage: '<img src="assets/Images/logo.svg" width="250" height="250" alt="logo img" title="logo image">',
         time: "Today", images: null, "timeline": false, from: null, type: "link", numOfComments: null, namesOfReacted: null, postReaction: null,
         ImagesOfReacted: null,
         postReactionImg: null

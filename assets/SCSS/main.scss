@@ -18,7 +18,7 @@ header {
         top: 50px;
         transform: translateY(0px);
         transition: transform 0.3s ease;
-
+        z-index: 900;
         &.translate {
             transform: translateY(50px);
         }

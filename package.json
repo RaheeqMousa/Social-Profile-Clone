@@ -1,6 +1,6 @@
 {
   "name": "social-profile-clone",
-  "type":"module",
+  "type": "module",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {

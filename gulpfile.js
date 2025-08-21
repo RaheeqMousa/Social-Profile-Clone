@@ -1,7 +1,6 @@
 import gulp from 'gulp';
 import * as sass from 'sass';
 import gulpSass from 'gulp-sass';
-import imagemin from 'gulp-imagemin';
 import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
 
@@ -21,30 +20,29 @@ export function watchFiles() {
 
 // Copy HTML
 export function copyHTML() {
-  return gulp.src('assets/*.html')
+  return gulp.src('*.html')
     .pipe(gulp.dest('dist'));
 }
 
 // Minimize images
 export function imageMin() {
   return gulp.src('assets/images/*')
-    .pipe(imagemin())
-    .pipe(gulp.dest('dist/images'));
+    .pipe(gulp.dest('dist/assets/Images'));
 }
 
 // Convert SCSS
 export function sassConvert() {
   return gulp.src('assets/SCSS/*.scss')
     .pipe(sassCompiler().on('error', sassCompiler.logError))
-    .pipe(gulp.dest('dist/css'));
+    .pipe(gulp.dest('dist/assets/CSS'));
 }
 
 // Concatenate JS
 export function scripts() {
   return gulp.src('assets/js/*.js')
-    .pipe(concat('MainMin.js'))
+    .pipe(concat('main.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('dist/js'));
+    .pipe(gulp.dest('dist/assets/JS'));
 }
 
 // Default task
