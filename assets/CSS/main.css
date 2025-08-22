@@ -95,6 +95,11 @@ header .sub-navbar div {
 header .sub-navbar div.row {
   height: 100%;
 }
+@media screen and (max-width: 320px) {
+  header .sub-navbar {
+    padding: 0;
+  }
+}
 header .navbar {
   height: 56px;
   padding: 0px 16px;
