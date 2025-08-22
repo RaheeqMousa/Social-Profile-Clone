@@ -431,16 +431,25 @@ main {
 
             form {
                 width: 100%;
+                @include base.align-center;
+                background-color: base.$mainColor;
+                border-radius: 30px;
 
                 input {
                     width: 100%;
                     padding: 8px 12px;
-                    border-radius: 30px;
-                    box-sizing: border-box;
                     border: none;
-                    background-color: base.$mainColor;
                     color: #65686c;
+                    flex: 1;
+                    background: transparent;
                 }
+
+                .comment-icons {
+                    display: flex;
+                    gap: 6px;
+                    margin-right: 4px;
+                }
+
             }
 
             .post-options {
@@ -604,3 +613,4 @@ main {
     color: #DD2333;
     font-weight: bold;
 }
+

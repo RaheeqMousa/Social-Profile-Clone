@@ -32,6 +32,7 @@ ul li {
 
 button {
   border: none;
+  cursor: pointer;
 }
 
 .display-none {
@@ -436,15 +437,23 @@ main .posts .post-layout .post-data {
 }
 main .posts .post-layout form {
   width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #F0F2F5;
+  border-radius: 30px;
 }
 main .posts .post-layout form input {
   width: 100%;
   padding: 8px 12px;
-  border-radius: 30px;
-  box-sizing: border-box;
   border: none;
-  background-color: #F0F2F5;
   color: #65686c;
+  flex: 1;
+  background: transparent;
+}
+main .posts .post-layout form .comment-icons {
+  display: flex;
+  gap: 6px;
+  margin-right: 4px;
 }
 main .posts .post-layout .post-options {
   border-top: 1px solid #F0F2F5;

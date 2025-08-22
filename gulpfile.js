@@ -24,9 +24,9 @@ export function copyHTML() {
     .pipe(gulp.dest('dist'));
 }
 
-// Minimize images
-export function imageMin() {
-  return gulp.src('assets/images/*')
+
+export function copyImages() {
+  return gulp.src('assets/Images/*', {encoding:false})
     .pipe(gulp.dest('dist/assets/Images'));
 }
 
@@ -47,6 +47,6 @@ export function scripts() {
 
 // Default task
 export default gulp.series(
-  gulp.parallel(buildStyles, sassConvert, copyHTML, imageMin, scripts),
+  gulp.parallel(buildStyles, sassConvert, copyHTML, copyImages, scripts),
   watchFiles
 );

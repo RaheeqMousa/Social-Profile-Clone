@@ -164,10 +164,41 @@ const structurePage = function () {
                             <img src="assets/Images/Young Raheeq.png" width="30" height="30" class="circle-image" alt="Yound Raheeq" title="Young Raheeq">
                             <svg class="dropdown" viewBox="0 0 16 16" width="8" height="8" fill="currentColor" class="x14rh7hd x1lliihq x1tzjh5l x1k90msu x2h7rmj x1qfuztq" style="--x-color: var(--primary-icon);"><g fill-rule="evenodd" transform="translate(-448 -544)"><path fill-rule="nonzero" d="M452.707 549.293a1 1 0 0 0-1.414 1.414l4 4a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L456 552.586l-3.293-3.293z"></path></g></svg>
                         </div>
-                                         
-                        <form action="somewhere.py" >
-                            <input name="comment"  placeholder="Write a comment...">
-                        </form>
+                        
+                        <form action="somewhere.py" method="post" class="row">
+                            <input 
+                            type="text" 
+                            name="comment"  
+                            placeholder="Write a comment..." 
+                            aria-label="Write a comment"
+                            >
+                            <div class="comment-icons">
+                            <button type="submit">
+                                <i 
+                                style="
+                                    background-image: url('https://static.xx.fbcdn.net/rsrc.php/v4/yH/r/Eoi2rFThRn5.png');
+                                    background-position: 0px -906px; 
+                                    background-size: auto; 
+                                    width: 16px; 
+                                    height: 16px; 
+                                    background-repeat: no-repeat; 
+                                    display: inline-block;
+                                ">
+                                </i>
+                            </button>
+                            <button type="button">
+                                <i data-visualcompletion="css-img" class="x1b0d499 x1d69dk1" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v4/yw/r/Tfc4faal4G1.png&quot;); background-position: 0px -153px; background-size: auto; width: 16px; height: 16px; background-repeat: no-repeat; display: inline-block;"></i>      </button>
+                            <button type="button">
+                                <i data-visualcompletion="css-img" class="x1b0d499 x1d69dk1" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v4/yH/r/Eoi2rFThRn5.png&quot;); background-position: 0px -940px; background-size: auto; width: 16px; height: 16px; background-repeat: no-repeat; display: inline-block;"></i>
+                            </button>
+                            <button>
+                                <i data-visualcompletion="css-img" class="x1b0d499 x1d69dk1" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v4/yH/r/Eoi2rFThRn5.png&quot;); background-position: 0px -974px; background-size: auto; width: 16px; height: 16px; background-repeat: no-repeat; display: inline-block;"></i>
+                            </button>
+                            <button>
+                                <i data-visualcompletion="css-img" class="x1b0d499 x1d69dk1" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v4/yH/r/Eoi2rFThRn5.png&quot;); background-position: 0px -1042px; background-size: auto; width: 16px; height: 16px; background-repeat: no-repeat; display: inline-block;"></i>
+                            </button>
+                            </div>
+                        </form>    
                     </div>`;
 
         result += `</div>`;
@@ -181,7 +212,7 @@ structurePage();
 
 window.addEventListener("scroll", () => {
     const subNavbar = document.querySelector(".sub-navbar");
-    if ((window.scrollY) >= 200) {
+    if ((window.scrollY) >= 250) {
         console.log(window.scrollY);
         subNavbar.classList.remove('display-none');
         subNavbar.classList.remove('translate');
