@@ -21,7 +21,7 @@ let posts=[{text:"https://raheeqmousa.github.io/XOzone/",linkHeading:"XOzone - H
                     </div>`)+`
                 <div>
                     ${"link"===posts[t].type?posts[t].text?`<a href='${posts[t].text}' class="post-data link" >https://raheeqmousa.github.io/XOzone/</a>
-                                <a href="${posts[t].text}" target="_blank" class="flex flex-center flex-column">
+                                <a href="${posts[t].text}" target="_blank" class="flex flex-center flex-column" rel="noopener noreferrer">
                                     ${posts[t].linkImage}
                                     <div class="GrayBackground" style="padding:12px 12px; width:100%;"">
                                             <h3>${posts[t].linkHeading}</h3>
@@ -123,4 +123,4 @@ let posts=[{text:"https://raheeqmousa.github.io/XOzone/",linkHeading:"XOzone - H
                             </button>
                             </div>
                         </form>    
-                    </div>`+"</div>";document.querySelector(".posts").innerHTML+=a};structurePage(),window.addEventListener("scroll",()=>{var t=document.querySelector(".sub-navbar");250<=window.scrollY?(console.log(window.scrollY),t.classList.remove("display-none"),t.classList.remove("translate")):window.scrollY<200&&(t.classList.add("display-none"),t.classList.add("translate"))});
+                    </div>`+"</div>";document.querySelector(".posts").innerHTML+=a},subNavbar=(structurePage(),document.querySelector(".sub-navbar")),scrollResponser=document.querySelector(".scroll-responser");if(subNavbar&&scrollResponser){let t=new IntersectionObserver(t=>{t[0].boundingClientRect.top<=0?(subNavbar.classList.remove("display-none"),subNavbar.classList.remove("translate")):(console.log("no subnavbar"),subNavbar.classList.add("display-none"),subNavbar.classList.add("translate"))});t.observe(scrollResponser)}
