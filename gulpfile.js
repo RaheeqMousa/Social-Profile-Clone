@@ -4,6 +4,7 @@ import gulpSass from 'gulp-sass';
 import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
 import browserSync from "browser-sync";
+import minifyCSS from 'gulp-clean-css';
 
 const sassCompiler = gulpSass(sass);
 const browserS = browserSync.create();
@@ -24,7 +25,7 @@ export function watchFiles() {
     }
 });
 
-  gulp.watch('assets/SCSS/**/*.scss', buildStyles).on('change', browserS.reload);
+  gulp.watch('assets/SCSS/**/*.scss', buildStyles);
   gulp.watch('*.html').on('change', browserS.reload);
   gulp.watch('assets/js/**/*.js').on('change', browserS.reload);
 }
@@ -45,6 +46,7 @@ export function copyImages() {
 export function sassConvert() {
   return gulp.src('assets/SCSS/*.scss')
     .pipe(sassCompiler().on('error', sassCompiler.logError))
+    .pipe(minifyCSS({ level: 1 }))
     .pipe(gulp.dest('dist/assets/CSS'));
 }
 
