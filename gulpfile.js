@@ -3,19 +3,30 @@ import * as sass from 'sass';
 import gulpSass from 'gulp-sass';
 import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
+import browserSync from "browser-sync";
 
 const sassCompiler = gulpSass(sass);
+const browserS = browserSync.create();
 
 // Compile SCSS to CSS
 export function buildStyles() {
   return gulp.src('assets/SCSS/**/*.scss')
     .pipe(sassCompiler().on('error', sassCompiler.logError))
-    .pipe(gulp.dest('assets/CSS'));
+    .pipe(gulp.dest('assets/CSS'))
+    .pipe(browserS.stream());
 }
 
 // Watch task
 export function watchFiles() {
-  gulp.watch('assets/SCSS/**/*.scss', buildStyles);
+  browserS.init({
+    server: {
+      baseDir: "./"
+    }
+});
+
+  gulp.watch('assets/SCSS/**/*.scss', buildStyles).on('change', browserS.reload);
+  gulp.watch('*.html').on('change', browserS.reload);
+  gulp.watch('assets/js/**/*.js').on('change', browserS.reload);
 }
 
 // Copy HTML
