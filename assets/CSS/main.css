@@ -272,6 +272,9 @@ header .profile-header .profile-info-wrapper .profile-info .user-info .personal-
   margin: 32px 0px 16px;
   width: 100%;
 }
+header .profile-header .profile-info-wrapper .profile-info .user-info .personal-header .personal-info h1 {
+  font-size: 32px;
+}
 @media screen and (max-width: 850px) {
   header .profile-header .profile-info-wrapper .profile-info .user-info .personal-header .personal-info {
     width: 100%;

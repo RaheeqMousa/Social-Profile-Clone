@@ -231,6 +231,9 @@ header {
                         width: 100%;
 
                         .personal-info {
+                            h1{
+                                font-size: 32px;
+                            }
                             @media screen and (max-width:850px) {
                                 width: 100%;
                                 margin-bottom: 16px;

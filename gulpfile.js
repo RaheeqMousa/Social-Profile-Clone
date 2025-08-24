@@ -20,10 +20,10 @@ export function buildStyles() {
 // Watch task
 export function watchFiles() {
   browserS.init({
-    server: {
-      baseDir: "./"
-    }
-});
+      server: {
+        baseDir: "./"
+      }
+  });
 
   gulp.watch('assets/SCSS/**/*.scss', buildStyles);
   gulp.watch('*.html').on('change', browserS.reload);
