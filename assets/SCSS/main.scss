@@ -519,19 +519,19 @@ main {
                     height: auto;
                 }
 
-                .ImageWrapper {
+                .image-wrapper {
                     overflow: hidden;
                     height: 320px;
                 }
 
                 @media screen and (max-width: 426px) {
-                    .ImageWrapper {
+                    .image-wrapper {
                         height: 185px;
                     }
                 }
 
                 @media screen and (max-width: 320px) {
-                    .ImageWrapper {
+                    .image-wrapper {
                         height: 130px;
                     }
                 }
@@ -623,4 +623,3 @@ main {
     color: #DD2333;
     font-weight: bold;
 }
-

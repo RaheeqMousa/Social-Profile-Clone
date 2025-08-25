@@ -510,17 +510,17 @@ main .posts .post-layout .images img {
   width: 100%;
   height: auto;
 }
-main .posts .post-layout .images .ImageWrapper {
+main .posts .post-layout .images .image-wrapper {
   overflow: hidden;
   height: 320px;
 }
 @media screen and (max-width: 426px) {
-  main .posts .post-layout .images .ImageWrapper {
+  main .posts .post-layout .images .image-wrapper {
     height: 185px;
   }
 }
 @media screen and (max-width: 320px) {
-  main .posts .post-layout .images .ImageWrapper {
+  main .posts .post-layout .images .image-wrapper {
     height: 130px;
   }
 }

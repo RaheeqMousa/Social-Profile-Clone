@@ -78,7 +78,7 @@ const structurePage = function () {
                     ? `<a href='${posts[i].text}' class="post-data link" >https://raheeqmousa.github.io/XOzone/</a>
                                 <a href="${posts[i].text}" target="_blank" class="flex flex-center flex-column" rel="noopener noreferrer">
                                     ${posts[i].linkImage}
-                                    <div class="GrayBackground" style="padding:12px 12px; width:100%;"">
+                                    <div class="gray-background" style="padding:12px 12px; width:100%;">
                                             <h3>${posts[i].linkHeading}</h3>
                                             <p class="gray-text">${posts[i].linkDesc}</p>
                                     </div>
@@ -90,21 +90,21 @@ const structurePage = function () {
                     : ''
                 )
             }
-                    ${posts[i].type == "MultipleImage" ?
+                    ${posts[i].type === "MultipleImage" ?
                 `<div class='images'>
                             ${posts[i].images.map(x => {
-                    return `<div class="ImageWrapper">
+                    return `<div class="image-wrapper">
                                     ${x}
                                 </div>`
                 }).join('')}
                         </div>`: ''
             }
 
-                    ${posts[i].type == "image" ?
+                    ${posts[i].type === "image" ?
                 posts[i].images[0] : ''
             }
                     
-                    ${posts[i].ImagesOfReacted != null ?
+                    ${posts[i].ImagesOfReacted !== null ?
                 `<div class="row reaction-comments" >
                             <div>
                                 ${posts[i].ImagesOfReacted}</span>
@@ -118,8 +118,8 @@ const structurePage = function () {
             }
                     <div class="row post-options">
                         <div class="post-btn flex flex-center gray-text">                     
-                            ${posts[i].postReactionImg != null ? posts[i].postReactionImg : '<i data-visualcompletion="css-img" class="x1b0d499 x1d69dk1" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v4/y1/r/6OydjuD6mEX.png&quot;); background-position: 0px -863px; background-size: 33px 1177px; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i>'}
-                            <p class="${posts[i].postReactionStyle != null ? posts[i].postReactionStyle : ''}">${posts[i].postReaction != null ? posts[i].postReaction : 'Like'}</p>
+                            ${posts[i].postReactionImg !== null ? posts[i].postReactionImg : '<i data-visualcompletion="css-img" class="x1b0d499 x1d69dk1" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v4/y1/r/6OydjuD6mEX.png&quot;); background-position: 0px -863px; background-size: 33px 1177px; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i>'}
+                            <p class="${posts[i].postReactionStyle !== null ? posts[i].postReactionStyle : ''}">${posts[i].postReaction !== null ? posts[i].postReaction : 'Like'}</p>
                         </div >
                         <div class="post-btn flex flex-center gray-text">
                             <i data-visualcompletion="css-img" class="x1b0d499 x1d69dk1" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v4/yX/r/4WPKeZhFbFO.png&quot;); background-position: 0px -821px; background-size: auto; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i>
@@ -130,21 +130,21 @@ const structurePage = function () {
                             <p>Share</p> 
                         </div>
                     </div>
-                    ${posts[i].reply != null ? '<span class="gray-text" style="height: 32px;">View more comments</span>' : ''}
+                    ${posts[i].reply !== null ? '<span class="gray-text" style="height: 32px;">View more comments</span>' : ''}
                 </div>
             `;
 
 
-        if (posts[i].reply != null)
+        if (posts[i].reply !== null)
             result += `
                 
                 <div>
                     <div class="flex comment">
-                        <img src='assets/Images/${posts[i].whoReplied == "Raheeq M Mousa" ? 'Young Raheeq.png' : 'profile.webp'}' width="30" height="30" class="circle-image" alt="publisher image" title="publisher image">
+                        <img src='assets/Images/${posts[i].whoReplied === "Raheeq M Mousa" ? 'Young Raheeq.png' : 'profile.webp'}' width="30" height="30" class="circle-image" alt="publisher image" title="publisher image">
                         <div class="comment">       
-                            <div class="comment-content GrayBackground">
-                               <p><a href="#" class="black-text comment-header">${posts[i].whoReplied != null ? posts[i].whoReplied : ''}</a></p>
-                                <p>${posts[i].reply != null ? posts[i].reply : ''}</p>
+                            <div class="comment-content gray-background">
+                               <p><a href="#" class="black-text comment-header">${posts[i].whoReplied !== null ? posts[i].whoReplied : ''}</a></p>
+                                <p>${posts[i].reply !== null ? posts[i].reply : ''}</p>
                             </div>
                             <div class="comment-options row">
                                 <div class="row">
@@ -153,7 +153,7 @@ const structurePage = function () {
                                     <span class="gray-text">Reply</span>
                                 </div>
                                 
-                                <p>${posts[i].replyRecationImage != null ? posts[i].replyRecationImage : ''}</p>                               
+                                <p>${posts[i].replyRecationImage !== null ? posts[i].replyRecationImage : ''}</p>                               
                             </div>
                         </div>
                     </div>
@@ -204,7 +204,7 @@ const structurePage = function () {
         result += `</div>`;
     }
 
-    document.querySelector('.posts').innerHTML += result;
+    document.querySelector('.posts').insertAdjacentHTML('beforeend',result);
 }
 
 structurePage();
@@ -223,7 +223,6 @@ if (subNavbar && scrollResponser) {
             subNavbar.classList.remove('display-none');
             subNavbar.classList.remove('translate');
         } else { // element is below the viewport top
-            console.log("no subnavbar");
             subNavbar.classList.add('display-none');
             subNavbar.classList.add('translate');
         }

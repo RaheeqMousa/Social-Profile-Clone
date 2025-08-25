@@ -27,7 +27,9 @@ export function watchFiles() {
 
   gulp.watch('assets/SCSS/**/*.scss', buildStyles);
   gulp.watch('*.html').on('change', browserS.reload);
-  gulp.watch('assets/js/**/*.js').on('change', browserS.reload);
+  gulp.watch('assets/JS/**/*.js').on('change', browserS.reload);
+  gulp.watch('assets/Images/**/*.{png,jpg,jpeg,gif,svg,webp}')
+  .on('change', browserS.reload);
 }
 
 // Copy HTML
@@ -52,7 +54,7 @@ export function sassConvert() {
 
 // Concatenate JS
 export function scripts() {
-  return gulp.src('assets/js/*.js')
+  return gulp.src('assets/JS/*.js')
     .pipe(concat('main.js'))
     .pipe(uglify())
     .pipe(gulp.dest('dist/assets/JS'));

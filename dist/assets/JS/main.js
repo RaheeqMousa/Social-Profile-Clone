@@ -23,20 +23,20 @@ let posts=[{text:"https://raheeqmousa.github.io/XOzone/",linkHeading:"XOzone - H
                     ${"link"===posts[t].type?posts[t].text?`<a href='${posts[t].text}' class="post-data link" >https://raheeqmousa.github.io/XOzone/</a>
                                 <a href="${posts[t].text}" target="_blank" class="flex flex-center flex-column" rel="noopener noreferrer">
                                     ${posts[t].linkImage}
-                                    <div class="GrayBackground" style="padding:12px 12px; width:100%;"">
+                                    <div class="gray-background" style="padding:12px 12px; width:100%;">
                                             <h3>${posts[t].linkHeading}</h3>
                                             <p class="gray-text">${posts[t].linkDesc}</p>
                                     </div>
                                 </a>`:"":posts[t].text?`<p class="post-data">${posts[t].text}</p>`:""}
-                    ${"MultipleImage"==posts[t].type?`<div class='images'>
-                            ${posts[t].images.map(t=>`<div class="ImageWrapper">
+                    ${"MultipleImage"===posts[t].type?`<div class='images'>
+                            ${posts[t].images.map(t=>`<div class="image-wrapper">
                                     ${t}
                                 </div>`).join("")}
                         </div>`:""}
 
-                    ${"image"==posts[t].type?posts[t].images[0]:""}
+                    ${"image"===posts[t].type?posts[t].images[0]:""}
                     
-                    ${null!=posts[t].ImagesOfReacted?`<div class="row reaction-comments" >
+                    ${null!==posts[t].ImagesOfReacted?`<div class="row reaction-comments" >
                             <div>
                                 ${posts[t].ImagesOfReacted}</span>
                                 <span class="gray-text">${posts[t].namesOfReacted}</span>
@@ -48,8 +48,8 @@ let posts=[{text:"https://raheeqmousa.github.io/XOzone/",linkHeading:"XOzone - H
                          </div>`:""}
                     <div class="row post-options">
                         <div class="post-btn flex flex-center gray-text">                     
-                            ${null!=posts[t].postReactionImg?posts[t].postReactionImg:'<i data-visualcompletion="css-img" class="x1b0d499 x1d69dk1" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v4/y1/r/6OydjuD6mEX.png&quot;); background-position: 0px -863px; background-size: 33px 1177px; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i>'}
-                            <p class="${null!=posts[t].postReactionStyle?posts[t].postReactionStyle:""}">${null!=posts[t].postReaction?posts[t].postReaction:"Like"}</p>
+                            ${null!==posts[t].postReactionImg?posts[t].postReactionImg:'<i data-visualcompletion="css-img" class="x1b0d499 x1d69dk1" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v4/y1/r/6OydjuD6mEX.png&quot;); background-position: 0px -863px; background-size: 33px 1177px; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i>'}
+                            <p class="${null!==posts[t].postReactionStyle?posts[t].postReactionStyle:""}">${null!==posts[t].postReaction?posts[t].postReaction:"Like"}</p>
                         </div >
                         <div class="post-btn flex flex-center gray-text">
                             <i data-visualcompletion="css-img" class="x1b0d499 x1d69dk1" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v4/yX/r/4WPKeZhFbFO.png&quot;); background-position: 0px -821px; background-size: auto; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i>
@@ -60,17 +60,17 @@ let posts=[{text:"https://raheeqmousa.github.io/XOzone/",linkHeading:"XOzone - H
                             <p>Share</p> 
                         </div>
                     </div>
-                    ${null!=posts[t].reply?'<span class="gray-text" style="height: 32px;">View more comments</span>':""}
+                    ${null!==posts[t].reply?'<span class="gray-text" style="height: 32px;">View more comments</span>':""}
                 </div>
-            `,null!=posts[t].reply&&(a+=`
+            `,null!==posts[t].reply&&(a+=`
                 
                 <div>
                     <div class="flex comment">
-                        <img src='assets/Images/${"Raheeq M Mousa"==posts[t].whoReplied?"Young Raheeq.png":"profile.webp"}' width="30" height="30" class="circle-image" alt="publisher image" title="publisher image">
+                        <img src='assets/Images/${"Raheeq M Mousa"===posts[t].whoReplied?"Young Raheeq.png":"profile.webp"}' width="30" height="30" class="circle-image" alt="publisher image" title="publisher image">
                         <div class="comment">       
-                            <div class="comment-content GrayBackground">
-                               <p><a href="#" class="black-text comment-header">${null!=posts[t].whoReplied?posts[t].whoReplied:""}</a></p>
-                                <p>${null!=posts[t].reply?posts[t].reply:""}</p>
+                            <div class="comment-content gray-background">
+                               <p><a href="#" class="black-text comment-header">${null!==posts[t].whoReplied?posts[t].whoReplied:""}</a></p>
+                                <p>${null!==posts[t].reply?posts[t].reply:""}</p>
                             </div>
                             <div class="comment-options row">
                                 <div class="row">
@@ -79,7 +79,7 @@ let posts=[{text:"https://raheeqmousa.github.io/XOzone/",linkHeading:"XOzone - H
                                     <span class="gray-text">Reply</span>
                                 </div>
                                 
-                                <p>${null!=posts[t].replyRecationImage?posts[t].replyRecationImage:""}</p>                               
+                                <p>${null!==posts[t].replyRecationImage?posts[t].replyRecationImage:""}</p>                               
                             </div>
                         </div>
                     </div>
@@ -123,4 +123,4 @@ let posts=[{text:"https://raheeqmousa.github.io/XOzone/",linkHeading:"XOzone - H
                             </button>
                             </div>
                         </form>    
-                    </div>`+"</div>";document.querySelector(".posts").innerHTML+=a},subNavbar=(structurePage(),document.querySelector(".sub-navbar")),scrollResponser=document.querySelector(".scroll-responser");if(subNavbar&&scrollResponser){let t=new IntersectionObserver(t=>{t[0].boundingClientRect.top<=0?(subNavbar.classList.remove("display-none"),subNavbar.classList.remove("translate")):(console.log("no subnavbar"),subNavbar.classList.add("display-none"),subNavbar.classList.add("translate"))});t.observe(scrollResponser)}
+                    </div>`+"</div>";document.querySelector(".posts").insertAdjacentHTML("beforeend",a)},subNavbar=(structurePage(),document.querySelector(".sub-navbar")),scrollResponser=document.querySelector(".scroll-responser");if(subNavbar&&scrollResponser){let t=new IntersectionObserver(t=>{t[0].boundingClientRect.top<=0?(subNavbar.classList.remove("display-none"),subNavbar.classList.remove("translate")):(subNavbar.classList.add("display-none"),subNavbar.classList.add("translate"))});t.observe(scrollResponser)}
