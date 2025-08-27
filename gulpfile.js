@@ -1,17 +1,20 @@
 import gulp from 'gulp';
 import * as sass from 'sass';
 import gulpSass from 'gulp-sass';
-import concat from 'gulp-concat';
-import uglify from 'gulp-uglify';
+import resolve from '@rollup/plugin-node-resolve';
+import { terser } from 'rollup-plugin-terser';
+import { rollup } from 'rollup';
+import concat from 'gulp-concat'
 import browserSync from "browser-sync";
 import minifyCSS from 'gulp-clean-css';
+import htmlreplace from 'gulp-html-replace';
 
 const sassCompiler = gulpSass(sass);
 const browserS = browserSync.create();
 
 // Compile SCSS to CSS
 export function buildStyles() {
-  return gulp.src('assets/SCSS/**/*.scss')
+  return gulp.src('src/SCSS/**/*.scss')
     .pipe(sassCompiler().on('error', sassCompiler.logError))
     .pipe(gulp.dest('assets/CSS'))
     .pipe(browserS.stream());
@@ -25,7 +28,7 @@ export function watchFiles() {
       }
   });
 
-  gulp.watch('assets/SCSS/**/*.scss', buildStyles);
+  gulp.watch('src/SCSS/**/*.scss', buildStyles);
   gulp.watch('*.html').on('change', browserS.reload);
   gulp.watch('assets/JS/**/*.js').on('change', browserS.reload);
   gulp.watch('assets/Images/**/*.{png,jpg,jpeg,gif,svg,webp}')
@@ -35,6 +38,13 @@ export function watchFiles() {
 // Copy HTML
 export function copyHTML() {
   return gulp.src('*.html')
+    .pipe(htmlreplace({
+      css: 'assets/CSS/main.min.css',
+      js:{
+        src:'assets/JS/main.min.js',
+        tpl:'<script type="module" src="%s"></script>'
+      } 
+    }))
     .pipe(gulp.dest('dist'));
 }
 
@@ -46,22 +56,31 @@ export function copyImages() {
 
 // Convert SCSS
 export function sassConvert() {
-  return gulp.src('assets/SCSS/*.scss')
+  return gulp.src(['src/SCSS/base.scss', 'src/SCSS/main.scss'])
     .pipe(sassCompiler().on('error', sassCompiler.logError))
+    .pipe(concat("main.min.css"))
     .pipe(minifyCSS({ level: 1 }))
     .pipe(gulp.dest('dist/assets/CSS'));
 }
 
 // Concatenate JS
-export function scripts() {
-  return gulp.src('assets/JS/*.js')
-    .pipe(concat('main.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest('dist/assets/JS'));
+export async function scripts() {
+  // Create Rollup bundle
+  const bundle = await rollup({
+    input: 'assets/JS/main.js',
+    plugins: [
+      resolve(),//resolve imports
+      terser() //minify
+    ]
+  });
+
+  await bundle.write({
+    file: 'dist/assets/JS/main.min.js',
+    format: 'es',
+  });
+
+  await bundle.close();
 }
 
-// Default task
-export default gulp.series(
-  gulp.parallel(buildStyles, sassConvert, copyHTML, copyImages, scripts),
-  watchFiles
-);
+export const dev=gulp.series(watchFiles);
+export const build=gulp.series(gulp.parallel(buildStyles, sassConvert, copyHTML, copyImages, scripts));
