@@ -1,10 +1,12 @@
 import gulp from 'gulp';
 import * as sass from 'sass';
 import gulpSass from 'gulp-sass';
-import resolve from '@rollup/plugin-node-resolve';
-import { terser } from 'rollup-plugin-terser';
 import { rollup } from 'rollup';
-import concat from 'gulp-concat'
+import resolve from '@rollup/plugin-node-resolve';
+import terser from 'gulp-terser';
+import rename from 'gulp-rename';
+import file from 'gulp-file';
+import concat from 'gulp-concat';
 import browserSync from "browser-sync";
 import minifyCSS from 'gulp-clean-css';
 import htmlreplace from 'gulp-html-replace';
@@ -63,24 +65,23 @@ export function sassConvert() {
     .pipe(gulp.dest('dist/assets/CSS'));
 }
 
-// Concatenate JS
 export async function scripts() {
-  // Create Rollup bundle
-  const bundle = await rollup({
-    input: 'assets/JS/main.js',
-    plugins: [
-      resolve(),//resolve imports
-      terser() //minify
-    ]
-  });
-
-  await bundle.write({
-    file: 'dist/assets/JS/main.min.js',
-    format: 'es',
-  });
-
+  const bundle = await rollup(
+    { input: 'assets/JS/main.js',
+      plugins: [resolve()] 
+    });
+  const { output } = await bundle.generate(
+    { 
+      format: 'es' 
+    });
   await bundle.close();
+
+  return file('assets/main.js', output[0].code, { src: true })
+    .pipe(terser())
+    .pipe(rename('main.min.js'))
+    .pipe(gulp.dest('dist/assets/JS'));
 }
+
 
 export const dev=gulp.series(watchFiles);
 export const build=gulp.series(gulp.parallel(buildStyles, sassConvert, copyHTML, copyImages, scripts));
