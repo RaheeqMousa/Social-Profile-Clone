@@ -1,0 +1,45 @@
+{
+  "name": "social-profile-clone",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "gulp dev",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RaheeqMousa/Social-Profile-Clone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RaheeqMousa/Social-Profile-Clone/issues"
+  },
+  "homepage": "https://github.com/RaheeqMousa/Social-Profile-Clone#readme",
+  "description": "",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "browser-sync": "^3.0.4",
+    "gulp": "^5.0.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-file": "^0.4.0",
+    "gulp-html-replace": "^1.6.2",
+    "gulp-imagemin": "^9.1.0",
+    "gulp-sass": "^6.0.1",
+    "gulp-terser": "^2.1.0",
+    "gulp-uglify": "^3.0.2",
+    "rollup": "^2.79.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "sass": "^1.90.0",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
+  },
+  "dependencies": {
+    "gulp-rename": "^2.1.0",
+    "gulp-rollup": "^2.17.0",
+    "stream": "^0.0.3"
+  }
+}
